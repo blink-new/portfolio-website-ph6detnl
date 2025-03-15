@@ -1,47 +1,41 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Menu, X, Moon, Sun } from 'lucide-react'
 import { cn } from '../lib/utils'
 
-const Header = () => {
+interface HeaderProps {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(false)
-  
-  // Toggle dark mode
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [isDarkMode])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode)
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-          Portfolio
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-background-light/80 dark:bg-background/80 border-b border-neutral-200 dark:border-neutral-800">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" className="text-2xl font-bold text-foreground-light dark:text-foreground">
+          <span className="font-light">your</span>portfolio
         </a>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#" className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+          <a href="#" className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors text-sm">
             Home
           </a>
-          <a href="#projects" className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+          <a href="#projects" className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors text-sm">
             Projects
           </a>
-          <a href="#contact" className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+          <a href="#contact" className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors text-sm">
             Contact
           </a>
           <button 
             onClick={toggleDarkMode}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            className="p-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
             aria-label="Toggle dark mode"
           >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </nav>
         
@@ -49,44 +43,44 @@ const Header = () => {
         <div className="md:hidden flex items-center">
           <button 
             onClick={toggleDarkMode}
-            className="p-2 mr-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            className="p-2 mr-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
             aria-label="Toggle dark mode"
           >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <button 
             onClick={toggleMenu}
-            className="p-2 rounded-md text-gray-700 dark:text-gray-200"
+            className="p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
       
       {/* Mobile Navigation */}
       <div className={cn(
-        "md:hidden absolute w-full bg-white dark:bg-gray-800 shadow-md transition-all duration-300 ease-in-out",
-        isMenuOpen ? "max-h-56 py-4" : "max-h-0 py-0 overflow-hidden"
+        "md:hidden absolute w-full bg-background-light/95 dark:bg-background/95 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-all duration-300 ease-in-out",
+        isMenuOpen ? "max-h-56 py-4" : "max-h-0 py-0 overflow-hidden border-b-0"
       )}>
-        <div className="container mx-auto px-4 flex flex-col space-y-4">
+        <div className="container mx-auto px-6 flex flex-col space-y-4">
           <a 
             href="#" 
-            className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors text-sm"
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </a>
           <a 
             href="#projects" 
-            className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors text-sm"
             onClick={() => setIsMenuOpen(false)}
           >
             Projects
           </a>
           <a 
             href="#contact" 
-            className="text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors text-sm"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact

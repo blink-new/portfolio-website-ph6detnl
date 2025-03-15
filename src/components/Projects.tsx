@@ -4,27 +4,27 @@ import { ExternalLink, Github } from 'lucide-react'
 const projects = [
   {
     id: 1,
-    title: 'E-commerce Website',
-    description: 'A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    title: 'E-commerce Platform',
+    description: 'A modern e-commerce solution with real-time inventory, personalized recommendations, and secure payment processing.',
+    tags: ['Next.js', 'TypeScript', 'Stripe'],
     image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
     liveUrl: '#',
     repoUrl: '#',
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A productivity application for managing tasks with drag-and-drop functionality and team collaboration features.',
-    tags: ['TypeScript', 'React', 'Firebase'],
+    title: 'Productivity Dashboard',
+    description: 'An all-in-one productivity suite featuring task management, time tracking, and team collaboration tools.',
+    tags: ['React', 'Firebase', 'Tailwind CSS'],
     image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1039&q=80',
     liveUrl: '#',
     repoUrl: '#',
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    description: 'A weather application that provides real-time forecasts, historical data, and interactive maps.',
-    tags: ['JavaScript', 'API Integration', 'Chart.js'],
+    title: 'AI Content Generator',
+    description: 'A tool that leverages machine learning to generate high-quality content for blogs, social media, and marketing materials.',
+    tags: ['Python', 'TensorFlow', 'OpenAI API'],
     image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
     liveUrl: '#',
     repoUrl: '#',
@@ -33,14 +33,19 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-4 bg-white dark:bg-gray-900">
-      <div className="container mx-auto max-w-6xl">
+    <section id="projects" className="py-24 px-6 relative">
+      <div className="absolute inset-0 bg-gradient-radial from-accent/5 via-transparent to-transparent dark:from-accent/5 dark:via-transparent dark:to-transparent pointer-events-none" aria-hidden="true"></div>
+      
+      <div className="container mx-auto max-w-6xl relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            My Projects
+          <div className="inline-block px-3 py-1 mb-4 border border-neutral-200 dark:border-neutral-800 rounded-full text-sm text-neutral-600 dark:text-neutral-300 backdrop-blur-md bg-background-light/30 dark:bg-background/30">
+            Portfolio
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground-light dark:text-foreground mb-4 tracking-tight">
+            Featured Projects
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are some of my recent projects. Each one was built to solve a specific problem or explore new technologies.
+          <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            A selection of my recent work. Each project represents a unique challenge and solution.
           </p>
         </div>
         
@@ -48,22 +53,22 @@ const Projects = () => {
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="group relative bg-background-light dark:bg-neutral-900 rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 hover:shadow-lg"
             >
               <div className="h-48 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold text-foreground-light dark:text-foreground mb-2">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-neutral-600 dark:text-neutral-300 mb-4 text-sm">
                   {project.description}
                 </p>
                 
@@ -71,7 +76,7 @@ const Projects = () => {
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm rounded-full"
+                      className="px-3 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-xs rounded-full"
                     >
                       {tag}
                     </span>
@@ -81,21 +86,21 @@ const Projects = () => {
                 <div className="flex justify-between">
                   <a 
                     href={project.liveUrl} 
-                    className="flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
+                    className="flex items-center text-accent-light dark:text-accent hover:text-accent-lightHover dark:hover:text-accent-hover transition-colors text-sm"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <ExternalLink size={16} className="mr-1" />
+                    <ExternalLink size={14} className="mr-1" />
                     Live Demo
                   </a>
                   
                   <a 
                     href={project.repoUrl} 
-                    className="flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
+                    className="flex items-center text-accent-light dark:text-accent hover:text-accent-lightHover dark:hover:text-accent-hover transition-colors text-sm"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Github size={16} className="mr-1" />
+                    <Github size={14} className="mr-1" />
                     Source Code
                   </a>
                 </div>
@@ -104,6 +109,9 @@ const Projects = () => {
           ))}
         </div>
       </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent"></div>
     </section>
   )
 }

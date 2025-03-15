@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Send, Mail, Phone, MapPin } from 'lucide-react'
+import { Send, Mail, Github, Linkedin } from 'lucide-react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,70 +34,75 @@ const Contact = () => {
   }
   
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto max-w-6xl">
+    <section id="contact" className="py-24 px-6 relative">
+      <div className="absolute inset-0 bg-gradient-radial from-accent/5 via-transparent to-transparent dark:from-accent/5 dark:via-transparent dark:to-transparent pointer-events-none" aria-hidden="true"></div>
+      
+      <div className="container mx-auto max-w-4xl relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In Touch
+          <div className="inline-block px-3 py-1 mb-4 border border-neutral-200 dark:border-neutral-800 rounded-full text-sm text-neutral-600 dark:text-neutral-300 backdrop-blur-md bg-background-light/30 dark:bg-background/30">
+            Contact
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground-light dark:text-foreground mb-4 tracking-tight">
+            Let's Work Together
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out to me using the form below.
+          <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            Have a project in mind or want to discuss opportunities? I'd love to hear from you.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Contact Information */}
-          <div className="flex flex-col justify-center">
-            <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                Contact Information
-              </h3>
+          <div className="lg:col-span-2 flex flex-col justify-center">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-semibold text-foreground-light dark:text-foreground mb-4">
+                  Get in Touch
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-300 mb-6">
+                  Feel free to reach out through the form or connect with me directly via email or social media.
+                </p>
+              </div>
               
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-full text-indigo-600 dark:text-indigo-400">
-                    <Mail size={20} />
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white">Email</h4>
-                    <a href="mailto:your.email@example.com" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                      your.email@example.com
-                    </a>
-                  </div>
+              <div className="flex items-center">
+                <div className="flex-shrink-0 p-2 rounded-full text-accent-light dark:text-accent">
+                  <Mail size={20} />
                 </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-full text-indigo-600 dark:text-indigo-400">
-                    <Phone size={20} />
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white">Phone</h4>
-                    <a href="tel:+1234567890" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                      +1 (234) 567-890
-                    </a>
-                  </div>
+                <div className="ml-3">
+                  <a href="mailto:your.email@example.com" className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors">
+                    your.email@example.com
+                  </a>
                 </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-full text-indigo-600 dark:text-indigo-400">
-                    <MapPin size={20} />
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white">Location</h4>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      San Francisco, CA
-                    </p>
-                  </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="flex-shrink-0 p-2 rounded-full text-accent-light dark:text-accent">
+                  <Github size={20} />
+                </div>
+                <div className="ml-3">
+                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors">
+                    github.com/yourusername
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="flex-shrink-0 p-2 rounded-full text-accent-light dark:text-accent">
+                  <Linkedin size={20} />
+                </div>
+                <div className="ml-3">
+                  <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-300 hover:text-accent-light dark:hover:text-accent transition-colors">
+                    linkedin.com/in/yourusername
+                  </a>
                 </div>
               </div>
             </div>
           </div>
           
           {/* Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md">
+          <div className="lg:col-span-3">
+            <form onSubmit={handleSubmit} className="bg-background-light dark:bg-neutral-900 p-8 rounded-lg border border-neutral-200 dark:border-neutral-800">
               <div className="mb-6">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-neutral-600 dark:text-neutral-300 mb-2">
                   Your Name
                 </label>
                 <input
@@ -107,13 +112,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-200 dark:border-neutral-800 focus:ring-2 focus:ring-accent focus:border-accent bg-neutral-100 dark:bg-neutral-800 text-foreground-light dark:text-foreground"
                   placeholder="John Doe"
                 />
               </div>
               
               <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-neutral-600 dark:text-neutral-300 mb-2">
                   Your Email
                 </label>
                 <input
@@ -123,13 +128,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-200 dark:border-neutral-800 focus:ring-2 focus:ring-accent focus:border-accent bg-neutral-100 dark:bg-neutral-800 text-foreground-light dark:text-foreground"
                   placeholder="john@example.com"
                 />
               </div>
               
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-600 dark:text-neutral-300 mb-2">
                   Your Message
                 </label>
                 <textarea
@@ -139,7 +144,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-200 dark:border-neutral-800 focus:ring-2 focus:ring-accent focus:border-accent bg-neutral-100 dark:bg-neutral-800 text-foreground-light dark:text-foreground resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 ></textarea>
               </div>
@@ -147,7 +152,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full px-6 py-3 bg-accent-light hover:bg-accent-lightHover dark:bg-accent dark:hover:bg-accent-hover text-white font-medium rounded-lg transition-colors flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <span>Sending...</span>
@@ -168,6 +173,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent"></div>
     </section>
   )
 }
